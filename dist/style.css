@@ -1,29 +1,97 @@
-h1{
-  border-color: #d3e644;
-  border-style: dashed;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
 }
 
-th, td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+label {
+    font-weight: bold;
 }
 
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
+#newTask {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 5px;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+#newTask:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.4);
 }
 
-tbody tr:hover {
-  background-color: #e9e9e9;
+#addBtn {
+    padding: 8px 16px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+#addBtn:hover {
+    background-color: #2980b9;
+}
+
+#taskList {
+    margin-top: 25px;
+    padding-left: 25px;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-text {
+    flex-grow: 1;
+}
+
+.done-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.done-btn:hover {
+    background-color: #c0392b;
+}
+
+/*animation making a button fall off scren */
+@keyframes fallAway {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.fall {
+    animation: fallAway 1.5s ease-in forwards;
 }

@@ -1,3 +1,9 @@
+//used for an easter egg in case you try to add too many empty tasks in a short timespan
+let clickCount = 0;
+setInterval(() => {
+    clickCount = 0;
+}, 10000);
+
 document.addEventListener("DOMContentLoaded", function() {
     const addBtn = document.getElementById("addBtn");
     addBtn.addEventListener("click", addBtnClick);
@@ -11,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function addBtnClick(event) {
+    
     let inputBox = document.getElementById("newTask");
     let taskContent = inputBox.value;
     if(taskContent.trim() !== "")
@@ -20,6 +27,16 @@ function addBtnClick(event) {
         inputBox.focus();
         
     }
+    //used for an easter egg in case you try to add too many empty tasks in a short timespan
+    else{
+        clickCount++;
+        if(clickCount > 15)
+        {
+            breakpage();
+        }
+    }
+
+    
     
 }
 
@@ -38,4 +55,10 @@ function addTask(taskContent) {
 function removeTask(event) {
     let itemToBeRemoved = event.target.parentNode;
     itemToBeRemoved.parentNode.removeChild(itemToBeRemoved);
+}
+
+function breakpage() {
+    const addBtn = document.getElementById("addBtn");
+
+    addBtn.classList.add("fall");
 }
